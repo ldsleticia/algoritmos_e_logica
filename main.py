@@ -27,8 +27,28 @@ def tabuada():
 
 
 def multiplica_com_soma():
-    primeiro_numero = 5
-    segundo_numero = 10
+    primeiro_numero = int(input('digite o número que quer multiplicar: '))
+    segundo_numero = int(
+        input('digite a quantidade de vezes que quer multiplicar: '))
+    resultado = 0
+
+    while segundo_numero > 0:
+        resultado += primeiro_numero
+        segundo_numero -= 1
+    print(resultado)
+
+
+def divisao_com_subtracao():
+    dividendo = 2
+    divisor = 2
+    quociente = 0
+    resto = dividendo
+
+    while resto >= divisor:
+        resto -= divisor
+        quociente += 1
+    print('sou o quociente ', quociente)
+    print('sou o resto ', resto)
 
 
 def menu():
@@ -37,6 +57,7 @@ def menu():
     print('2 para imprimir os dez primeiros multiplos de 3')
     print('3 para imprimir a tabuada de um numero')
     print('4 para multiplicar utilizando a soma')
+    print('5 para dividir utilizando a subtração')
 
     escolha = int(input())
 
@@ -49,6 +70,8 @@ def menu():
             tabuada()
         case 4:
             multiplica_com_soma()
+        case 5:
+            divisao_com_subtracao()
 
 
 if __name__ == '__main__':
