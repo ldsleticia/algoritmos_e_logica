@@ -50,6 +50,22 @@ def divisao_com_subtracao():
     print('sou o quociente ', quociente)
     print('sou o resto ', resto)
 
+def questoes_certas():
+    pontos = 0
+    questao = 1
+
+    while questao <= 3:
+        resposta = input(f'Resposta da questao {questao} ')
+        if questao == 1 and resposta.lower() == "b":
+            pontos += 1
+        if questao == 2 and resposta.lower() == "a":
+            pontos += 1
+        if questao == 3 and resposta.lower() == "d":
+            pontos += 1
+        questao += 1
+    print(f'voce acertou {pontos} questoes')
+
+
 
 def menu():
     print('escolha o exercicio a ser exibido')
@@ -58,6 +74,7 @@ def menu():
     print('3 para imprimir a tabuada de um numero')
     print('4 para multiplicar utilizando a soma')
     print('5 para dividir utilizando a subtração')
+    print('6 para questoes certas')
 
     escolha = int(input())
 
@@ -72,6 +89,8 @@ def menu():
             multiplica_com_soma()
         case 5:
             divisao_com_subtracao()
+        case 6:
+            questoes_certas()
 
 
 if __name__ == '__main__':
