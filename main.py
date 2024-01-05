@@ -118,6 +118,17 @@ def pagamento_de_juros():
     print(f"O total pago foi de: R$ {total_pago:.2f}")
     print(f"O total de juros pago foi de: R$ {total_juros:.2f}")
 
+def enquanto_for_true():
+    numero_inicial = 0
+
+    while True:
+        digite = int(input('digite um numero: '))
+        if digite == 0:
+            break
+        else:
+            numero_inicial += digite
+    print(numero_inicial)
+
 
 def menu():
     print('escolha o exercicio a ser exibido')
@@ -130,6 +141,7 @@ def menu():
     print('7 para media')
     print('8 para juros')
     print('9 para pagamento de juros')
+    print('10 para enquanto for true')
 
     escolha = int(input())
 
@@ -152,6 +164,8 @@ def menu():
             soma_juros()
         case 9:
             pagamento_de_juros()
+        case 10:
+            enquanto_for_true()
 
 
 if __name__ == '__main__':
