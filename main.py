@@ -79,18 +79,44 @@ def media():
 
 
 def soma_juros():
-    deposito_inicial = int(input('digite o valor do deposito inicial: '))
-    deposito_mensal = int(input('digite o valor do deposito mensal: '))
-    taxa_de_juros = int(input('digite a taxa de juros: '))
+    deposito_inicial = float(input('Digite o valor do depósito inicial: '))
+    deposito_mensal = float(input('Digite o valor do depósito mensal: '))
+    taxa_de_juros = float(input('Digite a taxa de juros: '))
+    taxa_de_juros /= 100
     tempo = 24
-    soma = 0
+    saldo = deposito_inicial
+    meses = 1
 
-    while tempo > 0:
-        soma = soma + (deposito_inicial * (taxa_de_juros / 100) + deposito_mensal)
-        print(f'Voce ganhou R$ {soma} de juros o mes passado')
-        somei_com_juros = soma + deposito_inicial
-        tempo -= 1
-    print(f'Voce tem R$ {somei_com_juros} no final dos {tempo} meses')
+    while meses <= tempo:
+        juros = saldo * taxa_de_juros
+        saldo += juros + deposito_mensal
+        print(
+            f"No mês {meses}, você ganhou R$ {juros:.2f} de juros. Seu saldo atual é R$ {saldo:.2f}")
+        meses += 1
+
+    print(f"\nApós {tempo} meses, seu saldo final será de R$ {saldo:.2f}")
+
+
+def pagamento_de_juros():
+    divida_total = float(input('Digite o valor da dívida: '))
+    deposito_mensal = float(input('Digite o valor do pagamento mensal: '))
+    taxa_de_juros = float(input('Digite a taxa de juros (em porcentagem): '))
+    taxa_de_juros /= 100 
+    divida_parcial = divida_total
+    tempo = 0
+    total_pago = 0
+    total_juros = 0
+
+    while divida_parcial > 0:
+        juros = divida_parcial * taxa_de_juros
+        divida_parcial += juros - deposito_mensal
+        tempo += 1
+        total_pago += deposito_mensal
+        total_juros += juros
+
+    print(f"O número de meses para pagar a dívida é: {tempo}")
+    print(f"O total pago foi de: R$ {total_pago:.2f}")
+    print(f"O total de juros pago foi de: R$ {total_juros:.2f}")
 
 
 def menu():
@@ -103,6 +129,7 @@ def menu():
     print('6 para questoes certas')
     print('7 para media')
     print('8 para juros')
+    print('9 para pagamento de juros')
 
     escolha = int(input())
 
@@ -123,6 +150,8 @@ def menu():
             media()
         case 8:
             soma_juros()
+        case 9:
+            pagamento_de_juros()
 
 
 if __name__ == '__main__':
