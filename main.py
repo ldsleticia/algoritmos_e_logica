@@ -101,7 +101,7 @@ def pagamento_de_juros():
     divida_total = float(input('Digite o valor da dívida: '))
     deposito_mensal = float(input('Digite o valor do pagamento mensal: '))
     taxa_de_juros = float(input('Digite a taxa de juros (em porcentagem): '))
-    taxa_de_juros /= 100 
+    taxa_de_juros /= 100
     divida_parcial = divida_total
     tempo = 0
     total_pago = 0
@@ -118,6 +118,7 @@ def pagamento_de_juros():
     print(f"O total pago foi de: R$ {total_pago:.2f}")
     print(f"O total de juros pago foi de: R$ {total_juros:.2f}")
 
+
 def enquanto_for_true():
     numero_inicial = 0
 
@@ -128,6 +129,37 @@ def enquanto_for_true():
         else:
             numero_inicial += digite
     print(numero_inicial)
+
+
+def caixa_registradora():
+    valor_do_item = 0
+    total = 0
+
+    while True:
+        codigo_do_item = int(
+            input('digite o código do item ou 0 para exibir o total: '))
+
+        if codigo_do_item == 0:
+            print(f"O total da compra é de R$ {total:.2f}")
+            break
+
+        qtde_do_item = int(input('digite a quantidade de itens: '))
+
+        match codigo_do_item:
+            case 1:
+                valor_do_item = 0.50
+            case 2:
+                valor_do_item = 1.00
+            case 3:
+                valor_do_item = 4.00
+            case 5:
+                valor_do_item = 7.00
+            case 9:
+                valor_do_item = 8.00
+            case _:
+                print('Código invalido')
+
+        total += valor_do_item * qtde_do_item
 
 
 def menu():
@@ -142,6 +174,7 @@ def menu():
     print('8 para juros')
     print('9 para pagamento de juros')
     print('10 para enquanto for true')
+    print('11 para caixa registradora')
 
     escolha = int(input())
 
@@ -166,6 +199,8 @@ def menu():
             pagamento_de_juros()
         case 10:
             enquanto_for_true()
+        case 11:
+            caixa_registradora()
 
 
 if __name__ == '__main__':
