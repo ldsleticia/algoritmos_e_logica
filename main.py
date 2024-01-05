@@ -50,6 +50,7 @@ def divisao_com_subtracao():
     print('sou o quociente ', quociente)
     print('sou o resto ', resto)
 
+
 def questoes_certas():
     pontos = 0
     questao = 1
@@ -66,6 +67,31 @@ def questoes_certas():
     print(f'voce acertou {pontos} questoes')
 
 
+def media():
+    x = 1
+    soma = 0
+
+    while x <= 5:
+        n = int(input('digite um numero: '))
+        soma = soma + n
+        x += 1
+    print(f'a média dos valores é {soma / 5}')
+
+
+def soma_juros():
+    deposito_inicial = int(input('digite o valor do deposito inicial: '))
+    deposito_mensal = int(input('digite o valor do deposito mensal: '))
+    taxa_de_juros = int(input('digite a taxa de juros: '))
+    tempo = 24
+    soma = 0
+
+    while tempo > 0:
+        soma = soma + (deposito_inicial * (taxa_de_juros / 100) + deposito_mensal)
+        print(f'Voce ganhou R$ {soma} de juros o mes passado')
+        somei_com_juros = soma + deposito_inicial
+        tempo -= 1
+    print(f'Voce tem R$ {somei_com_juros} no final dos {tempo} meses')
+
 
 def menu():
     print('escolha o exercicio a ser exibido')
@@ -75,6 +101,8 @@ def menu():
     print('4 para multiplicar utilizando a soma')
     print('5 para dividir utilizando a subtração')
     print('6 para questoes certas')
+    print('7 para media')
+    print('8 para juros')
 
     escolha = int(input())
 
@@ -91,6 +119,10 @@ def menu():
             divisao_com_subtracao()
         case 6:
             questoes_certas()
+        case 7:
+            media()
+        case 8:
+            soma_juros()
 
 
 if __name__ == '__main__':
