@@ -161,6 +161,59 @@ def caixa_registradora():
 
         total += valor_do_item * qtde_do_item
 
+def conta_cedulas():
+    valor = int(input('Digite o valor a pagar: '))
+    cedulas = 0
+    atual = 50
+    apagar = valor
+    while True:
+        if atual <= apagar:
+            apagar -= atual
+            cedulas +=1
+        else:
+            print(f'{cedulas} cedulas de R${atual}')
+            if apagar == 0:
+                break
+            if atual == 50:
+                atual = 20
+            elif atual == 20:
+                atual = 10
+            elif atual == 10:
+                atual = 5
+            elif atual == 5:
+                atual = 1
+            cedulas = 0
+
+
+def ex_bonus():
+    while True:
+        print('0 para sair')
+        print('1 para calcular o diametro do circulo')
+        print('2 para calcular a area do circulo')
+        print('3 para calcular a circunferencia do circulo')
+        print('4 para exibir todos os calculos')
+        escolha = int(input())
+
+        if escolha == 0:
+            break
+
+        raio = int(input('digite o raio do circulo: '))
+
+        diametro = raio * 2
+        area = 3.14 * (raio ** 2)
+        circunferencia = 2 * 3.14 * raio
+
+        match escolha:
+            case 1:
+                print(f'o diametro do circulo é {diametro}')
+            case 2:
+                print(f'a area do circulo é {area}')
+            case 3:
+                print(f'a circunferência do circulo é {circunferencia}')
+            case 4:
+                print(
+                    f"O diametro é {diametro}, a area é {area}, a circunferencia é {circunferencia}")
+
 
 def menu():
     print('escolha o exercicio a ser exibido')
@@ -175,6 +228,7 @@ def menu():
     print('9 para pagamento de juros')
     print('10 para enquanto for true')
     print('11 para caixa registradora')
+    print('99 para ex bonus')
 
     escolha = int(input())
 
@@ -201,6 +255,8 @@ def menu():
             enquanto_for_true()
         case 11:
             caixa_registradora()
+        case 99:
+            ex_bonus()
 
 
 if __name__ == '__main__':
